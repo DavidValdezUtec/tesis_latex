@@ -1,0 +1,48 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {figure}{\numberline {0.1}{\ignorespaces Ranking de los 20 casos más comunes en visitas al Área de Emergencias en 2018\cite {Emergency_reasons}\relax }}{5}{figure.caption.4}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Anestésicos locales más utilizados\cite {GONZALEZ-CELY2018}\relax }}{17}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Tipos de hilos en suturas\cite {GONZALEZ-CELY2018}\relax }}{18}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Esquema de teleoperación bilateral de cinemática proporcional~\cite {teleoperation_bilateral}\relax }}{19}{figure.caption.27}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Dispositivo háptico Geomagic touch de 3D Systems\relax }}{21}{figure.caption.31}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Especificaciones técnicas del dispositivo háptico Geomagic Touch de 3D Systems\relax }}{23}{figure.caption.32}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Posición y orientación de un cuerpo rígido\relax }}{24}{figure.caption.35}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Transformación de coordenadas en una Cadena cinemática abierta \cite {siciliano_robotics_2009}\relax }}{27}{figure.caption.39}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Método geométrico para sistema de 2 grados de libertad\relax }}{28}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Método Denavit-Hartenberg\relax }}{29}{figure.caption.44}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Nodos comunicados mediante un tópico\relax }}{49}{figure.caption.98}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Interfaz con el framework Qt5\relax }}{51}{figure.caption.101}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Interfaz de Rviz2\relax }}{52}{figure.caption.103}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Entorno de Gazebo\relax }}{53}{figure.caption.105}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Esquema de la metodología VDI 2206\relax }}{55}{figure.caption.113}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Entorno de Gazebo con el Robot UR5e\relax }}{57}{figure.caption.116}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Comunicación de tópicos y nodos planteada\relax }}{57}{figure.caption.117}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Esquema de teleoperación con retroalimentación háptica\relax }}{59}{figure.caption.120}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Interfaz en PyQt5. Se muestran de izquierda a derecha el área de configuración, el visualizador 3D de Rviz y el visualizador de la cámara\relax }}{65}{figure.caption.138}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Vistas principales del ensamble final.\relax }}{66}{figure.caption.141}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Modificación al efector final del módulo geomagic touch en \cite {arm_pivot_joints_stiffness}\relax }}{67}{figure.caption.143}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Seguimiento por eje cartesiano, control por impedancia, trayectoria recta\relax }}{72}{figure.caption.156}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Esfuerzo de control, control por impedancia, trayectoria recta\relax }}{73}{figure.caption.157}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Seguimiento tridimensional, control por impedancia, trayectoria recta\relax }}{74}{figure.caption.158}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Seguimiento por eje cartesiano, control por impedancia, curva helicoidal\relax }}{75}{figure.caption.160}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Esfuerzo de control, control por impedancia, curva helicoidal\relax }}{76}{figure.caption.161}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Seguimiento tridimensional, control por impedancia, curva helicoidal\relax }}{77}{figure.caption.162}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Seguimiento por eje cartesiano, control por modo deslizante, trayectoria recta\relax }}{78}{figure.caption.165}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Esfuerzo de control, control por modo deslizante, trayectoria recta\relax }}{79}{figure.caption.166}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Seguimiento tridimensional, control por modo deslizante, trayectoria recta\relax }}{80}{figure.caption.167}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Seguimiento por eje cartesiano, control por modo deslizante, curva helicoidal\relax }}{81}{figure.caption.169}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Esfuerzo de control, control por modo deslizante, curva helicoidal\relax }}{82}{figure.caption.170}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Seguimiento tridimensional, control por modo deslizante, curva helicoidal\relax }}{83}{figure.caption.171}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Seguimiento por eje cartesiano, optimización cuadrática, trayectoria recta\relax }}{84}{figure.caption.174}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Esfuerzo de control, optimización cuadrática, trayectoria recta\relax }}{85}{figure.caption.175}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Seguimiento tridimensional, optimización cuadrática, trayectoria recta\relax }}{86}{figure.caption.176}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Seguimiento por eje cartesiano, optimización cuadrática, curva helicoidal\relax }}{87}{figure.caption.178}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Esfuerzo de control, optimización cuadrática, curva helicoidal\relax }}{88}{figure.caption.179}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Seguimiento tridimensional, optimización cuadrática, curva helicoidal\relax }}{89}{figure.caption.180}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Seguimiento por eje cartesiano durante la teleoperación\relax }}{91}{figure.caption.184}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Esfuerzo de control durante la teleoperación\relax }}{91}{figure.caption.185}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Seguimiento tridimensional durante la teleoperación\relax }}{92}{figure.caption.186}%

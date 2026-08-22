@@ -1,0 +1,39 @@
+\chapter{RESULTADOS}
+\section{Verificación del Algoritmo de Control} % explicar como funcionó todo integrado en gazebo, el robot fue lo unico simulado ya que el haptico no se puede simular para generar la trayecotiria
+
+Dado que se implementó 3 algoritmos de control SMC, control de impedancia y  optimización se evaluo el desempeño de estas 3 aruitecturas en 4 escenarios, alcanzar una posición y orientación fija en el tiempo, seguimiento de un segmento en el espacio 3d manteniendo la orientación,  el seguimiento de una trayectoria circular que crece en ampliitud en el tiempo mientras varia la orientación y el seguimeinto de una trayectoria descrita por el dispositvo hapticco.
+
+
+\subsection{Respuesta al Escalón (Punto fijo)}
+\subsection{Seguimiento de Trayectoria Lineal}
+\subsection{Seguimiento de Trayectoria Espiral (Dinámica)}
+\subsection{Teleoperación (estocástica)}
+
+
+\begin{table}[H]
+\centering
+\caption{Comparativa de desempeño de los controladores en simulación (Métricas promedio)}
+\label{tab:comparativa_controladores}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l|ccc|ccc|ccc@{}}
+\toprule
+\multicolumn{1}{c|}{\textbf{Escenario}} & \multicolumn{3}{c|}{\textbf{SMC}} & \multicolumn{3}{c|}{\textbf{Impedancia}} & \multicolumn{3}{c|}{\textbf{Optimización (HQP)}} \\ \midrule
+ & RMSE & $t_s$ [s] & CPU [ms] & RMSE & $t_s$ [s] & CPU [ms] & RMSE & $t_s$ [s] & CPU [ms] \\ \midrule
+Punto Fijo & 0.001 & 0.5 & 0.2 & 0.005 & 0.8 & 0.1 & 0.002 & 0.6 & 1.5 \\
+Línea 3D & ... & - & ... & ... & - & ... & ... & - & ... \\
+Espiral & ... & - & ... & ... & - & ... & ... & - & ... \\
+Teleoperación & ... & - & ... & ... & - & ... & ... & - & ... \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\section{Caracterización del Banco de Pruebas} % aca detallar como se acomodó todo para el experimento, las piezas impresas la posición de los robots, la distancias entre la mesa etc fotos validando el setup, tolerancias de las piezas etc
+
+\section{Validación del Sistema Teleoperado} % aca mostrar el desempeño de la implementación respondiendo a la subsecciónes
+
+
+\subsection{Latencia y Estabilidad de la Comunicación} % dealys y clock en ros con el que se manda la respuesta, analisis de estos parámetros y como se manejaron dependen principalmente de la librería de ros y del propio robot entonce no hay mucha influencia que se pueda mejorar o se haya aportado
+\subsection{Error de Seguimiento de Trayectoria} % evaluar desempeño del seguimiento de trayectoria parámetros de desempeño, como se comporto a lo largo delas pruebas de trayectorias predefinidas  y durante toda la teleoperación
+\subsection{Funcionalidad en Tarea de Sutura} % secuencia de aproximación agarre manipulación y soltado breve demostración de que funciona dado que no podemos poner el video en el informe
+
+\section{Discusión de resultados} % que problemas hay simulación vs realidad por que simulación es peor que realidad, sino explicar 

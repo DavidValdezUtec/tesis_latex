@@ -1,0 +1,158 @@
+\chapter{REVISIÓN CRÍTICA DE LA LITERATURA}
+
+En este capítulo se realiza una evaluación técnica de los antecedentes en
+proyectos con robots quirúrgicos, con el objetivo de identificar mecanismos,
+configuraciones técnicas y aplicaciones relevantes en el procedimiento de una
+sutura. Este análisis se fundamenta en la revisión detallada de sistemas
+representativos que aporten bases concretas para el diseño metodológico y la
+interpretación de resultados en este proyecto.
+
+Asimismo, se analizan los métodos de control aplicados a sistemas hápticos,
+evaluando su desempeño frente a las características no lineales del sistema y
+los requerimientos de estabilidad en torque, movimiento y seguimiento de
+trayectorias. Este enfoque permite identificar limitaciones técnicas y
+estrategias de control con potencial de adaptación al
+contexto de esta investigación.
+
+\section{Antecedentes} %min 10 años de antigüedad, solo hitos
+
+La búsqueda de sistemas que reduzcan los riesgos durante intervenciones
+quirúrgicas ha impulsado el desarrollo de diversas técnicas y tecnologías a lo
+largo de la historia médica. Ya desde inicios de la década de 2000 se
+documentaba el uso de manipuladores robóticos en cirugía abdominal como
+alternativa para mejorar la precisión y reducir la invasividad de los
+procedimientos~\cite{HANLY200419}, y revisiones posteriores ampliaron este
+panorama a una variedad creciente de sistemas médicos robóticos aplicados a
+distintas especialidades~\cite{MedicalRobots}. En este contexto, la robótica ha
+emergido como una solución clave, destacándose en las últimas décadas por su
+potencial para optimizar procedimientos quirúrgicos no invasivos y de alta
+precisión.
+
+Según~\cite{Historia_de_los_robots_cirujanos}, la integración de robots en este
+campo ha llevado a un aumento de hasta 10 veces en la precisión de las
+intervenciones laparoscópicas. Un caso destacado es el robot Da Vinci, cuyo
+desarrollo ha dado lugar a técnicas innovadoras como el control por impedancia,
+diseñado para ajustar dinámicamente la fuerza aplicada por los manipuladores
+robóticos en respuesta a las interacciones con el tejido, evitando así dañar
+los tejidos por la falta de este método de control. Un hito reciente que
+ilustra esta madurez tecnológica es la extracción exitosa de un tumor benigno
+de la glándula parótida mediante el robot Da Vinci~\cite{DaVinci_tumor_2024}.
+Junto a Da Vinci, otras plataformas comerciales como Zeus y, más recientemente,
+Hugo RAS~\cite{prata_state_2023} evidencian que la industria continúa
+desarrollando alternativas robóticas para cirugía mínimamente invasiva, aunque
+casi siempre orientadas a procedimientos intracavitarios y no a la sutura
+externa de heridas superficiales.
+
+\section{Estado del Arte}
+
+\subsection{Sistemas robóticos teleoperados}
+
+La necesidad de operar a distancia en entornos de riesgo (por ejemplo,
+manipulación de material radioactivo en los inicios de la era nuclear) impulsó
+el desarrollo de la teleoperación y de arquitecturas maestro-esclavo. La
+investigación posterior se ha centrado en ampliar el rango de operación,
+mejorar la experiencia sensorial del operador y aumentar la precisión del
+sistema. En esta línea,~\cite{martinez2016desarrollo} aborda el desarrollo de
+un sistema maestro-esclavo con retroalimentación háptica, tomando como
+referencia aplicaciones de manipulación remota y mantenimiento en entornos
+físico-nucleares como JET (Joint European Torus).
+
+De forma complementaria, se han explorado esquemas de teleoperación que no
+dependen estrictamente de un dispositivo maestro convencional. Por ejemplo,
+~\cite{syakir_teleoperation_2019} evalúa el control de un brazo de 4 GDL a
+partir de captura de movimiento mediante Microsoft Kinect, realizando
+esqueletización para mapear el movimiento humano a referencias robóticas. De
+manera similar,~\cite{NAO-robot} explora teleoperación de un robot humanoide
+con Kinect, incorporando estrategias de aumento de datos para mejorar la
+estimación de ángulos articulares.
+
+En términos generales, la teleoperación permite que el operador gobierne el
+movimiento del robot sin intervenir directamente en el control interno de bajo
+nivel~\cite{you_assisted_2012}. Para aplicaciones quirúrgicas, esto se traduce
+en requisitos adicionales como mapeo preciso de posición/orientación,
+escalamiento de movimiento, manejo de latencia y, cuando corresponde,
+integración de retroalimentación de fuerza para mejorar la interacción con el
+entorno. Este marco motiva el desarrollo del módulo de teleoperación con
+retroalimentación háptica propuesto en esta tesis.
+
+Más cercano al esquema maestro-esclavo empleado en este trabajo,
+~\cite{teleoperation_irb120_geomagic} implementó la teleoperación de un
+manipulador ABB IRB 120 junto con una pinza BarrettHand BH8--282, empleando un
+dispositivo Geomagic Touch X como interfaz maestra y ROS como capa de
+comunicación. Este antecedente resulta especialmente relevante porque emplea el
+mismo dispositivo háptico considerado en la presente tesis, aunque aplicado a
+un robot y una tarea distintos a la sutura. En la misma línea, trabajos
+recientes han explorado consolas de teleoperación con realidad mixta para
+sistemas quirúrgicos robóticos, buscando mejorar la percepción espacial del
+operador durante el procedimiento~\cite{rodriguez2025consola}.
+
+\subsection{Sistemas robóticos aplicados a cirugías}
+La inclusión de robots en el ámbito médico, particularmente en cirugía
+mínimamente invasiva, ha permitido ejecutar movimientos más precisos y
+ergonómicos mediante interfaces maestro-esclavo y visualización endoscópica.
+Plataformas como Da Vinci han sido diseñadas para el entorno quirúrgico y, pese
+a su elevado costo, han sido adoptadas en hospitales debido a su capacidad de
+mejorar la destreza del operador y reducir el tamaño de la incisión
+~\cite{review_of_haptic_feedback}. No obstante, una limitación recurrente
+reportada en sistemas teleoperados es la ausencia o degradación de la
+percepción de fuerza durante la interacción con el tejido, lo que motiva la
+incorporación de retroalimentación háptica y estrategias de control que
+incrementen la seguridad y la consistencia del procedimiento.
+
+\subsection{Reconocimiento y visión computacional en cirugías}
+El uso de visión computacional en cirugía (como segmentación, 
+seguimiento de instrumentos y estimación de estructuras anatómicas) puede
+complementar la información del operador y mejorar la conciencia situacional
+del sistema. Sin embargo, dado que el foco de esta tesis es el desarrollo e
+integración de un módulo de teleoperación con retroalimentación háptica para
+sutura superficial, la incorporación de un módulo de visión se considera una
+extensión futura y no forma parte del alcance experimental del prototipo
+descrito.
+
+\subsection{Inclusión de la tecnología Háptica}
+
+La tecnología háptica se define como la disciplina que combina la percepción
+sensorial del tacto con el control de la respuesta a este estímulo, permitiendo
+diversas aplicaciones tecnológicas
+~\cite{Informacion_de_aplicaciones_tecnologia_haptica}. Esta tecnología busca
+transmitir las sensaciones físicas al usuario mediante la información
+recuperada de un modelo virtual o sensores, recreando experiencias que emulan
+la percepción directa como si el usuario interactuara presencialmente con el
+entorno. Su aplicación se ha destacado principalmente en la simulación de
+entornos virtuales para el entrenamiento en el uso de algún dispositivo, como
+en la conducción de vehículos~\cite{Ejemplo_haptic_manejo_carro}, manejo de
+aeronaves~\cite{Ejemplo_haptic_piloto_avion} y en el área de capacitación en la
+industria espacial~\cite{Ejemplo_haptic_entrenamiento_espacial}.
+
+En el ámbito médico, las operaciones requieren la plena atención del médico,
+especialmente en los aspectos visual y háptico, lo que resulta determinante
+para su correcto desempeño. Asimismo, la robótica se ha
+introducido en este sector, como es el caso del robot RIO System, que cuenta
+con retroalimentación háptica y se utiliza en cirugías ortopédicas, o el robot
+ALF-X, orientado a procedimientos RMIS (cirugía mínimamente invasiva asistida
+por robot)~\cite{robotica_haptics_retos_beneficios}. De este modo, aunque los robots
+manipuladores para cirugía comenzaron siendo únicamente teleoperados, muchos
+están incorporando la retroalimentación háptica debido al desempeño que esta
+proporciona. Al tratar con tejido blando de los órganos, la fuerza que se
+aplica con el robot debe ser precisa, ya que es posible dañar estos tejidos si
+no se controla adecuadamente. Solo con la retroalimentación visual podrían
+ocurrir errores al estimar la profundidad. Esto se refleja en dicho estudio,
+donde se menciona que, al incluir la retroalimentación háptica, los daños
+generados en un simulador de operaciones se redujeron en un 55\%
+~\cite{robotica_haptics_retos_beneficios}.
+
+\section{Síntesis y brecha de investigación}
+
+Los antecedentes revisados muestran una tendencia clara: los sistemas
+teleoperados con retroalimentación háptica han evolucionado hacia esquemas
+maestro-esclavo cada vez más precisos y flexibles, mientras que los sistemas
+robóticos aplicados a cirugía han priorizado la incorporación de
+retroalimentación de fuerza para compensar la pérdida de percepción táctil
+directa propia de la teleoperación. Sin embargo, en ninguno de los antecedentes
+revisados se aborda de manera sistemática la comparación de arquitecturas de
+control (optimización cinemática, control por impedancia y control por modo
+deslizante) para el seguimiento de trayectoria de un manipulador teleoperado
+orientado específicamente a la sutura externa de heridas superficiales. Esta
+ausencia constituye la brecha que la presente tesis busca atender, evaluando el
+desempeño relativo de estas tres arquitecturas como base para seleccionar la
+más adecuada para la tarea de sutura teleoperada.
