@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1787787837 "main.aux" "main.bbl" "main" 1787787844
+["bibtex main"] 1787787837 "main.aux" "main.bbl" "main" 1787896162
   "./IEEEtran.bst" 1787711318 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1787787844 34395 8d1e0b94132e7487d5cdebb7c29a8a5f "pdflatex"
+  "main.aux" 1787896162 34395 8d1e0b94132e7487d5cdebb7c29a8a5f "pdflatex"
   "referencias.bib" 1787711318 20555 00e8f77231eff7f68fd97cdb2ea14baf ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1787787837 "/home/david/Documentos/Tesis/tesis_latex/main.tex" "main.pdf" "main" 1787787844
+["pdflatex"] 1787896155 "/home/david/Documentos/Tesis/tesis_latex/main.tex" "main.pdf" "main" 1787896162
   "/etc/texmf/web2c/texmf.cnf" 1787710757 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/david/Documentos/Tesis/tesis_latex/main.tex" 1787711318 3344 62ca51956a3e4356d922d002c2021de5 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -293,19 +293,19 @@
   "images/pos_or.png" 1787711318 31777 e03bcaa30df26b97a0113c61356089e4 ""
   "images/technical_geomagic_touch.png" 1787711318 1979457 e7636417a6ea40476a3b1df67a712f6c ""
   "images/vdi_muy_basico.png" 1787711318 66872 9f95235f28fc1f7a5efd3e2ba68e712c ""
-  "main.aux" 1787787844 34395 8d1e0b94132e7487d5cdebb7c29a8a5f "pdflatex"
+  "main.aux" 1787896162 34395 8d1e0b94132e7487d5cdebb7c29a8a5f "pdflatex"
   "main.bbl" 1787787837 14139 bd0debc42fc9c9dd2dc23baac9e59e5d "bibtex main"
-  "main.lof" 1787787844 6544 cadb466000030c8aeecd119a5ec2fbaf "pdflatex"
-  "main.lot" 1787787844 938 730c013aede41592a5da7489ac900ad0 "pdflatex"
-  "main.out" 1787787844 21228 d003f2c32911e4ec8504e511db4b44ae "pdflatex"
+  "main.lof" 1787896162 6544 cadb466000030c8aeecd119a5ec2fbaf "pdflatex"
+  "main.lot" 1787896162 938 730c013aede41592a5da7489ac900ad0 "pdflatex"
+  "main.out" 1787896162 21228 d003f2c32911e4ec8504e511db4b44ae "pdflatex"
   "main.tex" 1787711318 3344 62ca51956a3e4356d922d002c2021de5 ""
-  "main.toc" 1787787844 8680 9b2ac60a46a5341d0a92da2bd0dc401f "pdflatex"
+  "main.toc" 1787896162 8680 9b2ac60a46a5341d0a92da2bd0dc401f "pdflatex"
   "secciones/abstract.tex" 1787711318 1522 740b219fd5fe2a4bf923d922e276e2f7 ""
   "secciones/anexos.tex" 1787711318 156 5a873adaf11ef029876615701cd8f010 ""
   "secciones/capitulo1.tex" 1787711318 10028 495b853f4c484703d679268594c46766 ""
   "secciones/capitulo2.tex" 1787711318 62893 4903f44cbbd59d158ffdaffa49e07485 ""
   "secciones/capitulo4.tex" 1787711318 23783 d8cd6740f6eccd88562a371f29a6470b ""
-  "secciones/capitulo5.tex" 1787787830 13911 98927eb7e48752e83514a9037f8b3a2e ""
+  "secciones/capitulo5.tex" 1787896155 13909 c2e4d78bdce68216d994b2f69148a013 ""
   "secciones/conclusiones.tex" 1787711318 1999 c7466a804dd5aa1f8eb33dfc9755a147 ""
   "secciones/introduccion.tex" 1787711318 12456 21ad445899a614b5cbfaec1aaa969e3a ""
   "secciones/recomendaciones.tex" 1787711318 741 c8e82388b3ed1b09c65619bdf9d83f36 ""
