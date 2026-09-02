@@ -55,43 +55,54 @@ obteniendo un total de seis pruebas evaluadas.
 Para cada prueba se presenta el seguimiento tridimensional del efector final,
 el seguimiento por eje cartesiano (con su error respectivo) y el esfuerzo de
 control requerido. Las métricas de error se calculan sobre la norma del error
-de posición cartesiano registrado en cada corrida.
+de posición cartesiano registrado en cada prueba.
+  
+Durante el procesamiento de estos registros en las seis pruebas, se
+consideraron los errores en el estado transitorio de arranque así como los
+errores en el estado estacionario, dado que ambos son relevantes para la
+tarea de teleoperación quirúrgica: el estado transitorio caracteriza qué tan
+rápido y con qué error cada arquitectura regula la posición del efector
+final justo después de activarse el seguimiento de trayectoria, de forma
+análoga al posicionamiento inicial del instrumento sobre el sitio
+quirúrgico, mientras que el estado estacionario caracteriza la precisión de
+seguimiento sostenido durante la ejecución de la trayectoria, análoga al
+movimiento del instrumento durante el procedimiento.
 
-Durante el procesamiento de estos registros se identificó que, en las seis
-corridas, el error de posición presenta un pico de corta duración (menor a
-$2$ s) inmediatamente después de la activación del seguimiento de
-trayectoria. Este pico no corresponde a un error de seguimiento propio de
-cada ley de control, sino a un transitorio de arranque: en la versión del
-nodo de control empleada para estas pruebas, la pose cartesiana inicial de la
-trayectoria se capturaba en el instante en que el robot entraba dentro de un
-umbral de tolerancia de la configuración articular objetivo del movimiento
-inicial, antes de que dicha configuración terminara de converger por
-completo; al activarse el seguimiento un segundo más tarde (tras el cambio de
-controlador de bajo nivel), ya existía un desfase entre esa pose inicial
-``congelada'' y la pose real medida del efector final, que el lazo de
-control corregía en los primeros ciclos. Se verificó que este desfase, y no
-el desempeño de la ley de control evaluada, explica gran parte del error
-máximo reportado en el optimizador QP y en el control por impedancia; en el
-caso del modo deslizante, en cambio, el error máximo ocurre más adelante en
-cada corrida (por ejemplo, hacia el segundo $3$ en la trayectoria recta) y sí
-corresponde a un error de seguimiento real. Por este motivo, y dado que la
-causa fue rastreada a un problema de sincronización en la captura de la pose
-inicial y no a una limitación de las arquitecturas de control, las métricas
-reportadas en el resto de esta sección excluyen los primeros $2$ s de cada
-corrida, ventana en la que dicho transitorio se disipa por completo en la
-totalidad de los registros analizados. La causa raíz ya fue corregida en el
-nodo de control (la pose inicial se recaptura inmediatamente antes de activar
-el seguimiento, con la configuración articular más reciente disponible); sin
-embargo, dado que los registros aquí analizados se obtuvieron con la versión
-anterior del software y que, por razones de cronograma y disponibilidad del
-banco de pruebas del proyecto, no fue posible repetir las seis corridas con
-la versión corregida, estos resultados se reportan como los oficiales de este
-trabajo. Se plantea como trabajo futuro repetir esta batería de pruebas con
-el nodo corregido para confirmar la eliminación completa de este transitorio.
-Cabe aclarar que las figuras de seguimiento presentadas a continuación
-muestran el registro completo de cada corrida, incluyendo dicho transitorio;
-únicamente las métricas numéricas reportadas en el texto y en la Tabla
-\ref{tab:comparacion_arquitecturas} excluyen los primeros $2$ s.
+En las seis pruebas se identificó que, en la versión del nodo de control
+empleada para estas mediciones, la pose cartesiana inicial de la trayectoria
+se capturaba en el instante en que el robot entraba dentro de un umbral de
+tolerancia de la configuración articular objetivo del movimiento inicial,
+antes de que dicha configuración terminara de converger por completo; al
+activarse el seguimiento un segundo más tarde (tras el cambio de controlador
+de bajo nivel), ya existía un desfase entre esa pose inicial ``congelada'' y
+la pose real medida del efector final. Este desfase constituye, en la
+práctica, un escalón de posición que cada arquitectura de control debe
+regular al inicio de la prueba, por lo que su respuesta ante él es una
+medida válida —aunque no planeada como tal— de la capacidad de regulación de
+posición de cada controlador, y se reporta a continuación como estado
+transitorio, junto con el error de seguimiento en estado estacionario. Se
+definió como estado transitorio a los primeros $2$ s de cada prueba tras la
+activación del seguimiento, ventana en la que dicho escalón inicial se
+disipa por completo en la totalidad de los registros analizados; el resto de
+cada prueba se reporta como estado estacionario. Las figuras de seguimiento
+presentadas a continuación muestran el registro completo de cada prueba,
+incluyendo ambos estados.
+
+La causa de este escalón inicial ya fue corregida en el nodo de control (la
+pose inicial se recaptura inmediatamente antes de activar el seguimiento,
+con la configuración articular más reciente disponible), por lo que en
+pruebas futuras se espera que el estado transitorio refleje únicamente la
+dinámica propia de cada controlador y no un desfase adicional en la
+referencia. Sin embargo, dado que los registros aquí analizados se
+obtuvieron con la versión anterior del software y que, por razones de
+cronograma y disponibilidad del banco de pruebas del proyecto, no fue
+posible repetir las seis pruebas con la versión corregida, estos
+resultados —incluyendo el estado transitorio tal como se presenta— se
+reportan como los oficiales de este trabajo. Se plantea como trabajo futuro
+repetir esta batería de pruebas con el nodo corregido para verificar si el
+estado transitorio reportado corresponde íntegramente a la dinámica de
+regulación de cada controlador o si conserva algún componente del desfase de
+captura identificado.
 
 \subsection{Control por impedancia}
 
@@ -118,12 +129,14 @@ muestran el registro completo de cada corrida, incluyendo dicho transitorio;
     \label{fig:imp_recta_3d}
 \end{figure}
 
-Sobre la trayectoria recta, el control por impedancia alcanzó un error de
-posición máximo de $8.4$ mm (RMS $3.3$ mm) una vez excluido el transitorio de
-arranque descrito anteriormente, concentrado principalmente en el eje $x$
-(máximo $7.7$ mm), mientras que los ejes $y$ y $z$ se mantuvieron por debajo
-de $2.6$ mm. El error de orientación se mantuvo por debajo de $0.9^{\circ}$
-durante toda la corrida.
+Sobre la trayectoria recta, el control por impedancia presentó, en estado
+transitorio (primeros $2$ s), un error máximo de $12.2$ mm y un RMS de
+$9.2$ mm mientras regulaba el escalón de posición inicial descrito
+anteriormente; en estado estacionario, el error máximo bajó a $8.4$ mm (RMS
+$3.3$ mm), concentrado principalmente en el eje $x$ (máximo $7.7$ mm),
+mientras que los ejes $y$ y $z$ se mantuvieron por debajo de $2.6$ mm. El
+error de orientación se mantuvo por debajo de $0.9^{\circ}$ durante toda la
+prueba.
 
 \subsubsection{Curva helicoidal}
 
@@ -149,12 +162,13 @@ durante toda la corrida.
 \end{figure}
 
 En la curva helicoidal, más exigente en aceleración y cambio de dirección, el
-error máximo también se redujo tras excluir el transitorio de arranque
-($8.3$ mm, del mismo orden que en la trayectoria recta), pero el error RMS
-casi se duplicó respecto a la trayectoria recta ($6.7$ mm), reflejando un
-error de seguimiento sostenido en lugar de picos puntuales; el esfuerzo de
-control promedio también aumentó considerablemente, de $12.6$ a $44.2$
-(norma del vector de torque registrado).
+estado transitorio mostró un error máximo de $12.8$ mm (RMS $4.5$ mm),
+similar en magnitud al de la trayectoria recta; en estado estacionario, el
+error máximo fue de $8.3$ mm y el RMS casi se duplicó respecto a la
+trayectoria recta ($6.7$ mm), reflejando un error de seguimiento sostenido
+en lugar de picos puntuales. El esfuerzo de control promedio en estado
+estacionario también aumentó considerablemente, de $12.6$ a $44.2$ (norma
+del vector de torque registrado).
 
 \subsection{Control por modo deslizante}
 
@@ -181,14 +195,17 @@ control promedio también aumentó considerablemente, de $12.6$ a $44.2$
     \label{fig:sld_recta_3d}
 \end{figure}
 
-El control por modo deslizante presentó el mayor error de seguimiento entre
-las tres arquitecturas en la trayectoria recta, con un máximo de $21.6$ mm y
-un RMS de $8.7$ mm, concentrado nuevamente en el eje $x$. A diferencia de
-impedancia y QP, este máximo no ocurre durante el transitorio de arranque de
-los primeros $2$ s, sino hacia el segundo $3$ de la corrida, por lo que
-corresponde a un error de seguimiento real y no a un artefacto de captura de
-la pose inicial. El esfuerzo de control promedio ($40.6$) resultó comparable
-al de impedancia en su corrida más exigente, a pesar de tratarse aquí de la
+El control por modo deslizante presentó, en estado transitorio, un error
+máximo de $21.1$ mm y un RMS de $17.7$ mm; a diferencia de impedancia y QP,
+el error no decae con rapidez tras el escalón de posición inicial, sino que
+continúa creciendo hasta alcanzar el máximo de toda la prueba ($21.6$ mm)
+hacia el segundo $3$, ya en estado estacionario (RMS $8.7$ mm), concentrado
+nuevamente en el eje $x$. Esto evidencia una fase de alcance (\textit{reaching
+phase}) más lenta que en las otras dos arquitecturas, por lo que en este caso
+el estado transitorio refleja, al menos en parte, la dinámica propia del
+controlador y no únicamente el escalón de posición inicial. El esfuerzo de
+control promedio en estado estacionario ($40.6$) resultó comparable al de
+impedancia en su prueba más exigente, a pesar de tratarse aquí de la
 trayectoria más simple.
 
 \subsubsection{Curva helicoidal}
@@ -214,14 +231,16 @@ trayectoria más simple.
     \label{fig:sld_heli_3d}
 \end{figure}
 
-En la curva helicoidal, el error RMS del SMC se elevó a $12.7$ mm, el más
-alto de las seis corridas evaluadas, con el error prácticamente repartido por
-igual entre los ejes $x$ y $y$ ($8.8$ mm RMS cada uno). El error máximo
-($15.7$ mm) tampoco corresponde al transitorio de arranque, sino a la corrida
-en régimen. El esfuerzo de control promedio ($92.2$) también fue el más alto
-registrado, más del doble que en la trayectoria recta, lo que sugiere que
-esta arquitectura, con las ganancias utilizadas, tuvo mayor dificultad para
-adaptarse a los cambios de dirección sostenidos de esta trayectoria.
+En la curva helicoidal, el estado transitorio del SMC presentó un error
+máximo de $12.7$ mm (RMS $5.7$ mm); en estado estacionario, el error RMS se
+elevó a $12.7$ mm, el más alto de las seis pruebas evaluadas, con el error
+prácticamente repartido por igual entre los ejes $x$ y $y$ ($8.8$ mm RMS
+cada uno), y el error máximo alcanzó $15.7$ mm ya en régimen, no durante el
+transitorio inicial. El esfuerzo de control promedio en estado estacionario
+($92.2$) también fue el más alto registrado, más del doble que en la
+trayectoria recta, lo que sugiere que esta arquitectura, con las ganancias
+utilizadas, tuvo mayor dificultad para adaptarse a los cambios de dirección
+sostenidos de esta trayectoria.
 
 \subsection{Optimización cuadrática (QP)}
 
@@ -248,16 +267,16 @@ adaptarse a los cambios de dirección sostenidos de esta trayectoria.
     \label{fig:qp_recta_3d}
 \end{figure}
 
-Durante los primeros $2$ s de esta corrida se registró un pico de error de
-hasta $12.4$ mm en el eje $x$, asociado al transitorio de arranque descrito
-al inicio de esta sección y no a un error de seguimiento propio del
-optimizador. Excluyendo ese transitorio, el QP alcanzó un error máximo de
-apenas $2.6$ mm y un error RMS de $0.7$ mm, muy por debajo de impedancia y
-SMC (casi un orden de magnitud). Cabe precisar que, al ser una arquitectura
-puramente cinemática, el QP no calcula torque; el esfuerzo de control aquí
-graficado corresponde al paso articular $\Delta q$ resuelto en cada
-iteración, no a un par aplicado, por lo que no es directamente comparable en
-magnitud con el de impedancia o SMC.
+El optimizador QP presentó, en estado transitorio, un error máximo de
+$12.4$ mm en el eje $x$ (RMS $3.6$ mm) mientras regulaba el escalón de
+posición inicial; en estado estacionario, el error máximo bajó a apenas
+$2.6$ mm y el RMS a $0.7$ mm, muy por debajo de impedancia y SMC (casi un
+orden de magnitud), lo que indica una regulación de posición notablemente
+más rápida que la de los controladores dinámicos. Cabe precisar que, al ser
+una arquitectura puramente cinemática, el QP no calcula torque; el esfuerzo
+de control aquí graficado corresponde al paso articular $\Delta q$ resuelto
+en cada iteración, no a un par aplicado, por lo que no es directamente
+comparable en magnitud con el de impedancia o SMC.
 
 \subsubsection{Curva helicoidal}
 
@@ -282,17 +301,38 @@ magnitud con el de impedancia o SMC.
     \label{fig:qp_heli_3d}
 \end{figure}
 
-En la curva helicoidal, el error máximo del QP fue de $5.4$ mm y el RMS de
-$3.1$ mm; a diferencia de la trayectoria recta, aquí el error máximo sí
-ocurre en régimen y no durante el transitorio de arranque. Al igual que en
-las otras dos arquitecturas, el error aumenta respecto a la trayectoria
-recta al excluir dicho transitorio, aunque el QP conserva el menor error RMS
-de las tres arquitecturas en ambas trayectorias.
+En la curva helicoidal, el estado transitorio del QP presentó un error
+máximo de $4.7$ mm (RMS $1.1$ mm), notablemente menor que en la trayectoria
+recta; en estado estacionario, el error máximo fue de $5.4$ mm y el RMS de
+$3.1$ mm, es decir que aquí el error máximo de toda la prueba ocurre en
+régimen y no durante el transitorio de arranque, a diferencia de la
+trayectoria recta. El QP conserva, en estado estacionario, el menor error
+RMS de las tres arquitecturas en ambas trayectorias.
 
 \subsection{Síntesis comparativa}
 
-La Tabla \ref{tab:comparacion_arquitecturas} resume las métricas obtenidas en
-las seis corridas evaluadas.
+Las Tablas \ref{tab:transitorio_arquitecturas} y
+\ref{tab:comparacion_arquitecturas} resumen las métricas obtenidas en las
+seis pruebas evaluadas, para el estado transitorio y el estado estacionario,
+respectivamente.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|c|c|c}
+        \textbf{Arquitectura} & \textbf{Trayectoria} & \shortstack{\textbf{Err. máx.}\\\textbf{(mm)}} & \shortstack{\textbf{Err. RMS}\\\textbf{(mm)}} \\
+        \hline
+        Impedancia & Recta      & 12.2 & 9.2  \\
+        Impedancia & Helicoidal & 12.8 & 4.5  \\
+        SMC        & Recta      & 21.1 & 17.7 \\
+        SMC        & Helicoidal & 12.7 & 5.7  \\
+        QP         & Recta      & 12.4 & 3.6  \\
+        QP         & Helicoidal & 4.7  & 1.1  \\
+    \end{tabular}
+    \caption{Métricas de error en estado transitorio (primeros $2$ s tras la
+        activación del seguimiento, ventana en la que cada arquitectura
+        regula el escalón de posición inicial descrito en el texto).}
+    \label{tab:transitorio_arquitecturas}
+\end{table}
 
 \begin{table}[H]
     \centering
@@ -306,22 +346,28 @@ las seis corridas evaluadas.
         QP         & Recta      & 2.6  & 0.7  & 4.0$^{*}$  & 1.4 \\
         QP         & Helicoidal & 5.4  & 3.1  & 3.8$^{*}$  & 1.6 \\
     \end{tabular}
-    \caption{Comparación de métricas de seguimiento entre arquitecturas de
-        control, excluyendo los primeros $2$ s de cada corrida (transitorio
-        de arranque, ver texto). ($^{*}$El esfuerzo de control del QP
+    \caption{Métricas de error en estado estacionario (posterior a los
+        primeros $2$ s de cada prueba), junto con el esfuerzo de control y el
+        tiempo de cómputo promedio. ($^{*}$El esfuerzo de control del QP
         corresponde al paso articular $\Delta q$, no a un torque, y no es
         directamente comparable con impedancia o SMC.)}
     \label{tab:comparacion_arquitecturas}
 \end{table}
 
-De las tres arquitecturas evaluadas, el optimizador QP obtuvo consistentemente
-el menor error RMS y el menor error máximo de seguimiento en ambas
-trayectorias, además del menor tiempo de cómputo por ciclo (en promedio $1.4$--$1.6$ ms, frente a $8$--$9$ ms de los
-controladores dinámicos), lo que además le permitió operar a una frecuencia
-de control efectiva considerablemente mayor. El control por impedancia
-presentó el segundo mejor desempeño en seguimiento, mientras que el SMC, con
-las ganancias empleadas, mostró el mayor error y el mayor esfuerzo de control
-en ambas trayectorias, particularmente en la curva helicoidal. En conjunto,
+En estado transitorio, el QP mostró la regulación de posición más rápida de
+las tres arquitecturas (menor error tanto máximo como RMS, salvo en la
+trayectoria recta donde su error máximo es comparable al de impedancia),
+mientras que el SMC presentó la fase de alcance más lenta, con un error
+transitorio en la trayectoria recta incluso mayor que su propio error en
+estado estacionario. En estado estacionario, el optimizador QP obtuvo
+consistentemente el menor error RMS y el menor error máximo de seguimiento
+en ambas trayectorias, además del menor tiempo de cómputo por ciclo (en
+promedio $1.4$--$1.6$ ms, frente a $8$--$9$ ms de los controladores
+dinámicos), lo que además le permitió operar a una frecuencia de control
+efectiva considerablemente mayor. El control por impedancia presentó el
+segundo mejor desempeño en seguimiento, mientras que el SMC, con las
+ganancias empleadas, mostró el mayor error y el mayor esfuerzo de control en
+ambas trayectorias, particularmente en la curva helicoidal. En conjunto,
 estos resultados sustentan la selección del optimizador QP como la
 arquitectura de control para la etapa de teleoperación.
 

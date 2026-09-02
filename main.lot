@@ -8,4 +8,5 @@
 \contentsline {table}{\numberline {3.2}{\ignorespaces Ganancias del control por modo deslizante\relax }}{62}{table.caption.129}%
 \contentsline {table}{\numberline {3.3}{\ignorespaces Ganancias del control por impedancia\relax }}{63}{table.caption.132}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Comparación de métricas de seguimiento entre arquitecturas de control. ($^{*}$El esfuerzo de control del QP corresponde al paso articular $\Delta q$, no a un torque, y no es directamente comparable con impedancia o SMC.)\relax }}{89}{table.caption.182}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Métricas de error en estado transitorio (primeros $2$ s tras la activación del seguimiento, ventana en la que cada arquitectura regula el escalón de posición inicial descrito en el texto).\relax }}{90}{table.caption.182}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Métricas de error en estado estacionario (posterior a los primeros $2$ s de cada prueba), junto con el esfuerzo de control y el tiempo de cómputo promedio. ($^{*}$El esfuerzo de control del QP corresponde al paso articular $\Delta q$, no a un torque, y no es directamente comparable con impedancia o SMC.)\relax }}{90}{table.caption.183}%
