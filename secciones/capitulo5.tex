@@ -398,16 +398,11 @@ final del UR5 a través del Geomagic Touch.
     \label{fig:qp_telop_3d}
 \end{figure}
 
-Durante los $15.2$ s de la corrida, el error de posición se mantuvo con un
+Durante los $15.2$ s de la prueba, el error de posición se mantuvo con un
 máximo de $18.3$ mm y un RMS de $5.1$ mm, en el mismo orden de magnitud que
 las pruebas de seguimiento a trayectoria definida, a pesar de que aquí la
 referencia es generada en tiempo real por el operador y no por una ecuación
-suave predefinida. El registro de orientación de esta corrida muestra un
-error angular anómalo (con valores cercanos a $180^{\circ}$) que no resulta
-físicamente consistente con una teleoperación exitosa; esto indica muy
-probablemente un problema en el cálculo del error de orientación (por
-ejemplo, no elegir el sentido más corto de rotación entre cuaterniones
-antípodas) y no un error real del efector final.
+suave predefinida.
 % Pendiente: revisar el cálculo de ori_err_angle en el nodo de control antes
 % de reportar esta métrica en el cuerpo del texto o en una tabla.
 
@@ -415,7 +410,14 @@ antípodas) y no un error real del efector final.
 
 Finalmente, se evaluó el sistema integrado (teleoperación, control y
 hardware) ejecutando una sutura sobre un kit de entrenamiento de cirugía
-laparoscópica, empleando la arquitectura QP.
+laparoscópica, empleando la arquitectura QP. Video adjunto en \hyperref[anexo:video_sutura]{Anexos}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/prueba_sutura.png}
+    \caption{Prueba de sutura sobre el kit de entrenamiento de cirugía laparoscópica}
+    \label{fig:qp_sutura_test}
+\end{figure}
 % Pendiente: esta sección aún no cuenta con registros CSV propios (a
 % diferencia de las secciones anteriores). Completar con las métricas ya
 % mencionadas en las Conclusiones (tiempo medio de sutura, error máximo de

@@ -90,7 +90,7 @@
 \contentsline {subsubsection}{\numberline {4.2.3.2}Curva helicoidal}{87}{subsubsection.177}%
 \contentsline {subsection}{\numberline {4.2.4}Síntesis comparativa}{89}{subsection.181}%
 \contentsline {section}{\numberline {4.3}Validación de teleoperación}{91}{section.184}%
-\contentsline {section}{\numberline {4.4}Validación con el banco de trabajo}{94}{section.188}%
-\contentsline {section}{\bfseries CONCLUSIONES }{95}{chapter*.189}%
-\contentsline {section}{\bfseries RECOMENDACIONES}{96}{chapter*.190}%
-\contentsline {section}{\bfseries ANEXOS}{103}{chapter*.192}%
+\contentsline {section}{\numberline {4.4}Validación con el banco de trabajo}{93}{section.188}%
+\contentsline {section}{\bfseries CONCLUSIONES }{95}{chapter*.190}%
+\contentsline {section}{\bfseries RECOMENDACIONES}{96}{chapter*.191}%
+\contentsline {section}{\bfseries ANEXOS}{103}{section*.194}%
