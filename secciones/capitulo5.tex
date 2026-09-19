@@ -23,9 +23,9 @@ siguiendo el esquema descrito en el capítulo de marco metodológico.
 
 Se evaluó cada arquitectura de control sobre dos trayectorias de referencia
 de dificultad creciente. La primera es una trayectoria recta, generada por el
-desplazamiento desde el punto inicial $x_0$ hasta un punto alejado una
-distancia $A$ en cada eje, con una aproximación exponencial de constante de
-tiempo $1/c_0$:
+desplazamiento desde el punto inicial \(x_0\) hasta un punto alejado una
+distancia \(A\) en cada eje, con una aproximación exponencial de constante de
+tiempo \(1/c_0\):
 
 \begin{equation}
     \begin{cases}
@@ -37,7 +37,7 @@ tiempo $1/c_0$:
 La segunda es una curva helicoidal de radio variable, pensada para exigir un
 seguimiento más demandante en aceleración y cambio de dirección, cuya
 amplitud crece de forma exponencial desde el punto inicial hasta un radio
-máximo $A$:
+máximo \(A\):
 
 \begin{equation}
     \begin{cases}
@@ -56,7 +56,7 @@ Para cada prueba se presenta el seguimiento tridimensional del efector final,
 el seguimiento por eje cartesiano (con su error respectivo) y el esfuerzo de
 control requerido. Las métricas de error se calculan sobre la norma del error
 de posición cartesiano registrado en cada prueba.
-  
+
 Durante el procesamiento de estos registros en las seis pruebas, se
 consideraron los errores en el estado transitorio de arranque así como los
 errores en el estado estacionario, dado que ambos son relevantes para la
@@ -81,7 +81,7 @@ regular al inicio de la prueba, por lo que su respuesta ante él es una
 medida válida —aunque no planeada como tal— de la capacidad de regulación de
 posición de cada controlador, y se reporta a continuación como estado
 transitorio, junto con el error de seguimiento en estado estacionario. Se
-definió como estado transitorio a los primeros $2$ s de cada prueba tras la
+definió como estado transitorio a los primeros \(2\) s de cada prueba tras la
 activación del seguimiento, ventana en la que dicho escalón inicial se
 disipa por completo en la totalidad de los registros analizados; el resto de
 cada prueba se reporta como estado estacionario. Las figuras de seguimiento
@@ -130,12 +130,12 @@ captura identificado.
 \end{figure}
 
 Sobre la trayectoria recta, el control por impedancia presentó, en estado
-transitorio (primeros $2$ s), un error máximo de $12.2$ mm y un RMS de
-$9.2$ mm mientras regulaba el escalón de posición inicial descrito
-anteriormente; en estado estacionario, el error máximo bajó a $8.4$ mm (RMS
-$3.3$ mm), concentrado principalmente en el eje $x$ (máximo $7.7$ mm),
-mientras que los ejes $y$ y $z$ se mantuvieron por debajo de $2.6$ mm. El
-error de orientación se mantuvo por debajo de $0.9^{\circ}$ durante toda la
+transitorio (primeros \(2\) s), un error máximo de \(12.2\) mm y un RMS de
+\(9.2\) mm mientras regulaba el escalón de posición inicial descrito
+anteriormente; en estado estacionario, el error máximo bajó a \(8.4\) mm (RMS
+\(3.3\) mm), concentrado principalmente en el eje \(x\) (máximo \(7.7\) mm),
+mientras que los ejes \(y\) y \(z\) se mantuvieron por debajo de \(2.6\) mm. El
+error de orientación se mantuvo por debajo de \(0.9^{\circ}\) durante toda la
 prueba.
 
 \subsubsection{Curva helicoidal}
@@ -162,12 +162,12 @@ prueba.
 \end{figure}
 
 En la curva helicoidal, más exigente en aceleración y cambio de dirección, el
-estado transitorio mostró un error máximo de $12.8$ mm (RMS $4.5$ mm),
+estado transitorio mostró un error máximo de \(12.8\) mm (RMS \(4.5\) mm),
 similar en magnitud al de la trayectoria recta; en estado estacionario, el
-error máximo fue de $8.3$ mm y el RMS casi se duplicó respecto a la
-trayectoria recta ($6.7$ mm), reflejando un error de seguimiento sostenido
+error máximo fue de \(8.3\) mm y el RMS casi se duplicó respecto a la
+trayectoria recta (\(6.7\) mm), reflejando un error de seguimiento sostenido
 en lugar de picos puntuales. El esfuerzo de control promedio en estado
-estacionario también aumentó considerablemente, de $12.6$ a $44.2$ (norma
+estacionario también aumentó considerablemente, de \(12.6\) a \(44.2\) (norma
 del vector de torque registrado).
 
 \subsection{Control por modo deslizante}
@@ -196,15 +196,15 @@ del vector de torque registrado).
 \end{figure}
 
 El control por modo deslizante presentó, en estado transitorio, un error
-máximo de $21.1$ mm y un RMS de $17.7$ mm; a diferencia de impedancia y QP,
+máximo de \(21.1\) mm y un RMS de \(17.7\) mm; a diferencia de impedancia y QP,
 el error no decae con rapidez tras el escalón de posición inicial, sino que
-continúa creciendo hasta alcanzar el máximo de toda la prueba ($21.6$ mm)
-hacia el segundo $3$, ya en estado estacionario (RMS $8.7$ mm), concentrado
-nuevamente en el eje $x$. Esto evidencia una fase de alcance (\textit{reaching
-phase}) más lenta que en las otras dos arquitecturas, por lo que en este caso
+continúa creciendo hasta alcanzar el máximo de toda la prueba (\(21.6\) mm)
+hacia el segundo \(3\), ya en estado estacionario (RMS \(8.7\) mm), concentrado
+nuevamente en el eje \(x\). Esto evidencia una fase de alcance (\textit{reaching
+    phase}) más lenta que en las otras dos arquitecturas, por lo que en este caso
 el estado transitorio refleja, al menos en parte, la dinámica propia del
 controlador y no únicamente el escalón de posición inicial. El esfuerzo de
-control promedio en estado estacionario ($40.6$) resultó comparable al de
+control promedio en estado estacionario (\(40.6\)) resultó comparable al de
 impedancia en su prueba más exigente, a pesar de tratarse aquí de la
 trayectoria más simple.
 
@@ -232,12 +232,12 @@ trayectoria más simple.
 \end{figure}
 
 En la curva helicoidal, el estado transitorio del SMC presentó un error
-máximo de $12.7$ mm (RMS $5.7$ mm); en estado estacionario, el error RMS se
-elevó a $12.7$ mm, el más alto de las seis pruebas evaluadas, con el error
-prácticamente repartido por igual entre los ejes $x$ y $y$ ($8.8$ mm RMS
-cada uno), y el error máximo alcanzó $15.7$ mm ya en régimen, no durante el
+máximo de \(12.7\) mm (RMS \(5.7\) mm); en estado estacionario, el error RMS se
+elevó a \(12.7\) mm, el más alto de las seis pruebas evaluadas, con el error
+prácticamente repartido por igual entre los ejes \(x\) y \(y\) (\(8.8\) mm RMS
+cada uno), y el error máximo alcanzó \(15.7\) mm ya en régimen, no durante el
 transitorio inicial. El esfuerzo de control promedio en estado estacionario
-($92.2$) también fue el más alto registrado, más del doble que en la
+(\(92.2\)) también fue el más alto registrado, más del doble que en la
 trayectoria recta, lo que sugiere que esta arquitectura, con las ganancias
 utilizadas, tuvo mayor dificultad para adaptarse a los cambios de dirección
 sostenidos de esta trayectoria.
@@ -268,13 +268,13 @@ sostenidos de esta trayectoria.
 \end{figure}
 
 El optimizador QP presentó, en estado transitorio, un error máximo de
-$12.4$ mm en el eje $x$ (RMS $3.6$ mm) mientras regulaba el escalón de
+\(12.4\) mm en el eje \(x\) (RMS \(3.6\) mm) mientras regulaba el escalón de
 posición inicial; en estado estacionario, el error máximo bajó a apenas
-$2.6$ mm y el RMS a $0.7$ mm, muy por debajo de impedancia y SMC (casi un
+\(2.6\) mm y el RMS a \(0.7\) mm, muy por debajo de impedancia y SMC (casi un
 orden de magnitud), lo que indica una regulación de posición notablemente
 más rápida que la de los controladores dinámicos. Cabe precisar que, al ser
 una arquitectura puramente cinemática, el QP no calcula torque; el esfuerzo
-de control aquí graficado corresponde al paso articular $\Delta q$ resuelto
+de control aquí graficado corresponde al paso articular \(\Delta q\) resuelto
 en cada iteración, no a un par aplicado, por lo que no es directamente
 comparable en magnitud con el de impedancia o SMC.
 
@@ -302,9 +302,9 @@ comparable en magnitud con el de impedancia o SMC.
 \end{figure}
 
 En la curva helicoidal, el estado transitorio del QP presentó un error
-máximo de $4.7$ mm (RMS $1.1$ mm), notablemente menor que en la trayectoria
-recta; en estado estacionario, el error máximo fue de $5.4$ mm y el RMS de
-$3.1$ mm, es decir que aquí el error máximo de toda la prueba ocurre en
+máximo de \(4.7\) mm (RMS \(1.1\) mm), notablemente menor que en la trayectoria
+recta; en estado estacionario, el error máximo fue de \(5.4\) mm y el RMS de
+\(3.1\) mm, es decir que aquí el error máximo de toda la prueba ocurre en
 régimen y no durante el transitorio de arranque, a diferencia de la
 trayectoria recta. El QP conserva, en estado estacionario, el menor error
 RMS de las tres arquitecturas en ambas trayectorias.
@@ -319,16 +319,16 @@ respectivamente.
 \begin{table}[H]
     \centering
     \begin{tabular}{l|c|c|c}
-        \textbf{Arquitectura} & \textbf{Trayectoria} & \shortstack{\textbf{Err. máx.}\\\textbf{(mm)}} & \shortstack{\textbf{Err. RMS}\\\textbf{(mm)}} \\
+        \textbf{Arquitectura} & \textbf{Trayectoria} & \shortstack{\textbf{Err. máx.}        \\\textbf{(mm)}} & \shortstack{\textbf{Err. RMS}\\\textbf{(mm)}} \\
         \hline
-        Impedancia & Recta      & 12.2 & 9.2  \\
-        Impedancia & Helicoidal & 12.8 & 4.5  \\
-        SMC        & Recta      & 21.1 & 17.7 \\
-        SMC        & Helicoidal & 12.7 & 5.7  \\
-        QP         & Recta      & 12.4 & 3.6  \\
-        QP         & Helicoidal & 4.7  & 1.1  \\
+        Impedancia            & Recta                & 12.2                           & 9.2  \\
+        Impedancia            & Helicoidal           & 12.8                           & 4.5  \\
+        SMC                   & Recta                & 21.1                           & 17.7 \\
+        SMC                   & Helicoidal           & 12.7                           & 5.7  \\
+        QP                    & Recta                & 12.4                           & 3.6  \\
+        QP                    & Helicoidal           & 4.7                            & 1.1  \\
     \end{tabular}
-    \caption{Métricas de error en estado transitorio (primeros $2$ s tras la
+    \caption{Métricas de error en estado transitorio (primeros \(2\) s tras la
         activación del seguimiento, ventana en la que cada arquitectura
         regula el escalón de posición inicial descrito en el texto).}
     \label{tab:transitorio_arquitecturas}
@@ -337,19 +337,19 @@ respectivamente.
 \begin{table}[H]
     \centering
     \begin{tabular}{l|c|c|c|c|c}
-        \textbf{Arquitectura} & \textbf{Trayectoria} & \shortstack{\textbf{Err. máx.}\\\textbf{(mm)}} & \shortstack{\textbf{Err. RMS}\\\textbf{(mm)}} & \shortstack{\textbf{Esf. control}\\\textbf{prom.}} & \shortstack{\textbf{Cómputo}\\\textbf{prom. (ms)}} \\
+        \textbf{Arquitectura} & \textbf{Trayectoria} & \shortstack{\textbf{Err. máx.}                          \\\textbf{(mm)}} & \shortstack{\textbf{Err. RMS}\\\textbf{(mm)}} & \shortstack{\textbf{Esf. control}\\\textbf{prom.}} & \shortstack{\textbf{Cómputo}\\\textbf{prom. (ms)}} \\
         \hline
-        Impedancia & Recta      & 8.4  & 3.3  & 12.6 & 9.2 \\
-        Impedancia & Helicoidal & 8.3  & 6.7  & 44.2 & 8.8 \\
-        SMC        & Recta      & 21.6 & 8.7  & 40.6 & 8.0 \\
-        SMC        & Helicoidal & 15.7 & 12.7 & 92.2 & 8.0 \\
-        QP         & Recta      & 2.6  & 0.7  & 4.0$^{*}$  & 1.4 \\
-        QP         & Helicoidal & 5.4  & 3.1  & 3.8$^{*}$  & 1.6 \\
+        Impedancia            & Recta                & 8.4                            & 3.3  & 12.6      & 9.2 \\
+        Impedancia            & Helicoidal           & 8.3                            & 6.7  & 44.2      & 8.8 \\
+        SMC                   & Recta                & 21.6                           & 8.7  & 40.6      & 8.0 \\
+        SMC                   & Helicoidal           & 15.7                           & 12.7 & 92.2      & 8.0 \\
+        QP                    & Recta                & 2.6                            & 0.7  & 4.0\(^{*}\) & 1.4 \\
+        QP                    & Helicoidal           & 5.4                            & 3.1  & 3.8\(^{*}\) & 1.6 \\
     \end{tabular}
     \caption{Métricas de error en estado estacionario (posterior a los
-        primeros $2$ s de cada prueba), junto con el esfuerzo de control y el
-        tiempo de cómputo promedio. ($^{*}$El esfuerzo de control del QP
-        corresponde al paso articular $\Delta q$, no a un torque, y no es
+        primeros \(2\) s de cada prueba), junto con el esfuerzo de control y el
+        tiempo de cómputo promedio. (\(^{*}\)El esfuerzo de control del QP
+        corresponde al paso articular \(\Delta q\), no a un torque, y no es
         directamente comparable con impedancia o SMC.)}
     \label{tab:comparacion_arquitecturas}
 \end{table}
@@ -362,7 +362,7 @@ transitorio en la trayectoria recta incluso mayor que su propio error en
 estado estacionario. En estado estacionario, el optimizador QP obtuvo
 consistentemente el menor error RMS y el menor error máximo de seguimiento
 en ambas trayectorias, además del menor tiempo de cómputo por ciclo (en
-promedio $1.4$--$1.6$ ms, frente a $8$--$9$ ms de los controladores
+promedio \(1.4\)--\(1.6\) ms, frente a \(8\)--\(9\) ms de los controladores
 dinámicos), lo que además le permitió operar a una frecuencia de control
 efectiva considerablemente mayor. El control por impedancia presentó el
 segundo mejor desempeño en seguimiento, mientras que el SMC, con las
@@ -398,8 +398,8 @@ final del UR5 a través del Geomagic Touch.
     \label{fig:qp_telop_3d}
 \end{figure}
 
-Durante los $15.2$ s de la prueba, el error de posición se mantuvo con un
-máximo de $18.3$ mm y un RMS de $5.1$ mm, en el mismo orden de magnitud que
+Durante los \(15.2\) s de la prueba, el error de posición se mantuvo con un
+máximo de \(18.3\) mm y un RMS de \(5.1\) mm, en el mismo orden de magnitud que
 las pruebas de seguimiento a trayectoria definida, a pesar de que aquí la
 referencia es generada en tiempo real por el operador y no por una ecuación
 suave predefinida.
