@@ -84,13 +84,12 @@
 \contentsline {subsubsection}{\numberline {4.2.1.2}Curva helicoidal}{75}{subsubsection.160}%
 \contentsline {subsection}{\numberline {4.2.2}Control por modo deslizante}{78}{subsection.164}%
 \contentsline {subsubsection}{\numberline {4.2.2.1}Trayectoria recta}{78}{subsubsection.165}%
-\contentsline {subsubsection}{\numberline {4.2.2.2}Curva helicoidal}{81}{subsubsection.169}%
-\contentsline {subsection}{\numberline {4.2.3}Optimización cuadrática (QP)}{84}{subsection.173}%
-\contentsline {subsubsection}{\numberline {4.2.3.1}Trayectoria recta}{84}{subsubsection.174}%
-\contentsline {subsubsection}{\numberline {4.2.3.2}Curva helicoidal}{87}{subsubsection.178}%
-\contentsline {subsection}{\numberline {4.2.4}Síntesis comparativa}{89}{subsection.182}%
-\contentsline {section}{\numberline {4.3}Validación de teleoperación}{91}{section.185}%
-\contentsline {section}{\numberline {4.4}Validación con el banco de trabajo}{93}{section.189}%
-\contentsline {section}{\bfseries CONCLUSIONES }{95}{chapter*.191}%
-\contentsline {section}{\bfseries RECOMENDACIONES}{96}{chapter*.192}%
-\contentsline {section}{\bfseries ANEXOS}{103}{section*.195}%
+\contentsline {subsection}{\numberline {4.2.3}Optimización cuadrática (QP)}{81}{subsection.169}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}Trayectoria recta}{81}{subsubsection.170}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}Curva helicoidal}{84}{subsubsection.174}%
+\contentsline {subsection}{\numberline {4.2.4}Síntesis comparativa}{86}{subsection.178}%
+\contentsline {section}{\numberline {4.3}Validación de teleoperación}{88}{section.181}%
+\contentsline {section}{\numberline {4.4}Validación con el banco de trabajo}{90}{section.185}%
+\contentsline {section}{\bfseries CONCLUSIONES }{92}{chapter*.187}%
+\contentsline {section}{\bfseries RECOMENDACIONES}{93}{chapter*.188}%
+\contentsline {section}{\bfseries ANEXOS}{100}{section*.191}%
